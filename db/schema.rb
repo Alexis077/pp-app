@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_09_04_010427) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -29,8 +32,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_010427) do
   end
 
   create_table "product_categories", force: :cascade do |t|
-    t.integer "product_id", null: false
-    t.integer "category_id", null: false
+    t.bigint "product_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_product_categories_on_category_id"
@@ -46,9 +49,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_010427) do
   end
 
   create_table "purchase_items", force: :cascade do |t|
-    t.integer "purchase_id", null: false
-    t.integer "product_id", null: false
+    t.bigint "purchase_id", null: false
+    t.bigint "product_id", null: false
     t.integer "quantity"
+    t.decimal "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_purchase_items_on_product_id"
@@ -56,7 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_010427) do
   end
 
   create_table "purchases", force: :cascade do |t|
-    t.integer "client_id", null: false
+    t.bigint "client_id", null: false
     t.integer "total_products"
     t.decimal "total_amount"
     t.datetime "date"
