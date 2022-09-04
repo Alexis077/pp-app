@@ -10,6 +10,12 @@ Rails.application.routes.draw do
           post 'login', to: 'authentications#login'
         end
       end
+      resources :products, only: [:most_demanded, :top_incomes] do 
+        collection do
+          get 'most_demanded', to: 'products#most_demanded'
+          get 'top_incomes', to: 'products#top_incomes'
+        end
+      end
     end
   end
 end
