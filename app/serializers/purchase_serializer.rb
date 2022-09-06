@@ -3,6 +3,6 @@ class PurchaseSerializer < ActiveModel::Serializer
   has_many :purchase_items
 
   def date
-    object.date.strftime("%d/%m/%Y")
+    object.date.strftime('%d/%m/%Y')
   end
 end

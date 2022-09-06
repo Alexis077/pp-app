@@ -10,7 +10,7 @@ RSpec.describe Api::V1::PurchasesController, type: :controller do
     context 'get purchases' do
       it 'success response' do
         request.headers.merge!(headers)
-        get(:index)      
+        get(:index)
         json_response = JSON.parse(response.body)
         json_response.each do |purchase|
           purcase_items = purchase['purcase_items']

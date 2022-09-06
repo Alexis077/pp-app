@@ -10,8 +10,8 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
     context 'get most demanded products' do
       it 'success response' do
         request.headers.merge!(headers)
-        get(:most_demanded)      
-        json_response = JSON.parse(response.body)  
+        get(:most_demanded)
+        json_response = JSON.parse(response.body)
         expect(response.status).to eq(200)
       end
     end
@@ -21,8 +21,8 @@ RSpec.describe Api::V1::ProductsController, type: :controller do
     context 'get top of incomes' do
       it 'success response' do
         request.headers.merge!(headers)
-        get(:top_incomes)      
-        json_response = JSON.parse(response.body)  
+        get(:top_incomes)
+        json_response = JSON.parse(response.body)
         expect(response.status).to eq(200)
       end
     end

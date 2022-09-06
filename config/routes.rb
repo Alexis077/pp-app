@@ -5,12 +5,12 @@ Rails.application.routes.draw do
   # root "articles#index"
   namespace :api do
     namespace :v1 do
-      resources :authentications, only: [:login] do 
-        collection do 
+      resources :authentications, only: [:login] do
+        collection do
           post 'login', to: 'authentications#login'
         end
       end
-      resources :products, only: [:most_demanded, :top_incomes] do 
+      resources :products, only: %i[most_demanded top_incomes] do
         collection do
           get 'most_demanded', to: 'products#most_demanded'
           get 'top_incomes', to: 'products#top_incomes'
