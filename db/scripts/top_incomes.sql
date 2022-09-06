@@ -6,7 +6,7 @@ FROM   (SELECT *,
                         ORDER BY d.total_purchase desc) ) AS row_num
         FROM   (SELECT c.NAME            AS category_name,
                         p.NAME            AS product_name,
-                        Sum(pi2.total) AS total_purchase
+                        ROUND(Sum(pi2.total), 2) AS total_purchase
                 FROM   categories c
                         INNER JOIN product_categories pc
                                 ON pc.category_id = c.id

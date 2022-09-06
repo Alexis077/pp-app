@@ -30,4 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  errors: 
+    controllers:
+      application: 
+        messages:
+          missing_header: 'Missing header'
+          not_valid_token: 'Not valid token'
+          not_found: 'User not found'
+          error: 'Internal server error'

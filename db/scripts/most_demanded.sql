@@ -6,7 +6,7 @@ FROM   (SELECT *,
                         ORDER BY d.total_quantity desc) ) AS row_num
         FROM   (SELECT c.NAME            AS category_name,
                         p.NAME            AS product_name,
-                        Sum(pi2.quantity) AS total_quantity
+                        ROUND(Sum(pi2.quantity)) AS total_quantity
                 FROM   categories c
                         INNER JOIN product_categories pc
                                 ON pc.category_id = c.id

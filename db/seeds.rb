@@ -1,10 +1,10 @@
 include FactoryBot::Syntax::Methods
 
-
-category_1 = create(:category)
-category_2 = create(:category)
-category_3 = create(:category)
-category_4 = create(:category)
+create(:user, password: '12345678')
+category_1 = create(:category, name: 'Category 1')
+category_2 = create(:category, name: 'Category 2')
+category_3 = create(:category, name: 'Category 3')
+category_4 = create(:category, name: 'Category 4')
 
 product_1 = create(:product)
 product_2 = create(:product)
@@ -16,7 +16,6 @@ product_7 = create(:product)
 product_8 = create(:product)
 product_9 = create(:product)
 product_10 = create(:product)
-
 
 ProductCategory.create!(product: product_1, category: category_1)
 ProductCategory.create!(product: product_2, category: category_1)
