@@ -48,21 +48,18 @@ create(:purchase, date: Time.zone.now,
                                 { product: product_2, quantity: 1}
                                 ]
 )
-
 create(:purchase, date: Time.zone.now,
     purchase_items_attributes: [ 
                             { product: product_3, quantity: 5},
                             { product: product_4, quantity: 12}
                             ]
 )
-
 create(:purchase, date: Time.zone.now,
     purchase_items_attributes: [ 
                             { product: product_3, quantity: 2},
                             { product: product_4, quantity: 2}
                             ]
 )
-
 create(:purchase, date: Time.zone.now,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 5},
@@ -70,7 +67,6 @@ create(:purchase, date: Time.zone.now,
                             { product: product_10, quantity: 1}
                             ]
 )
-
 create(:purchase, date: Time.zone.now,
     purchase_items_attributes: [ 
                             { product: product_2, quantity: 4},
@@ -79,7 +75,6 @@ create(:purchase, date: Time.zone.now,
                             { product: product_10, quantity: 7}
                             ]
 )
-
 create(:purchase, date: Time.zone.now,
     purchase_items_attributes: [ 
                             { product: product_2, quantity: 9},
@@ -89,7 +84,6 @@ create(:purchase, date: Time.zone.now,
                             { product: product_6, quantity: 4}
                             ]
 )
-
 create(:purchase, date: Time.zone.now,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 3},
@@ -99,7 +93,6 @@ create(:purchase, date: Time.zone.now,
                             { product: product_4, quantity: 2}
                             ]
 )
-
 create(:purchase, date: Time.zone.now,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 4}
@@ -110,19 +103,16 @@ create(:purchase, date: Time.zone.now,
                             { product: product_1, quantity: 7}
                             ]
 )
-
 create(:purchase, date: Time.zone.now,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 6}
                             ]
 )
-
 create(:purchase, date: Time.zone.now,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 2}
                             ]
 )
-
 create(:purchase, date: Time.zone.now,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 8}
