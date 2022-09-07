@@ -13,10 +13,19 @@ RSpec.describe Api::V1::PurchasesController, type: :controller do
         get(:index)
         json_response = JSON.parse(response.body)
         json_response.each do |purchase|
-          purcase_items = purchase['purcase_items']
-          expect(purchase['total_products']).eq(purcase_items.sum { _1['quantity'] })
-          expect(purchase['total_amount']).eq(purcase_items.sum { _1['quantity'] * _1['total'] })
+          total_products = 0
+          total_amount = 0
+          purchase_items = purchase['purchase_items']
+          purchase_items.each do |purchase_item|
+            total_amount += purchase_item['total']
+            total_products += purchase_item['quantity']
+          end
+
+          expect(purchase['total_products']).to eq(total_products)
+          expect(purchase['total_amount']).to eq(total_amount)
         end
+
+        expect(json_response.size).to eq(12)
         expect(response.status).to eq(200)
       end
     end

@@ -6,11 +6,11 @@ class Purchase < ApplicationRecord
   accepts_nested_attributes_for :purchase_items
 
   def set_total_products
-    self.total_products = purchase_items.sum(:quantity)
+    self.total_products = purchase_items.sum(&:quantity)
   end
 
   def set_total_amount
-    self.total_amount = purchase_items.sum(:total)
+    self.total_amount = purchase_items.sum(&:total)
   end
 
   def self.search(params)

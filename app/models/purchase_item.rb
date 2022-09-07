@@ -4,7 +4,7 @@ class PurchaseItem < ApplicationRecord
 
   validates :purchase_id, uniqueness: { scope: :product_id }
 
-  before_create :set_total
+  after_initialize :set_total
 
   def set_total
     self.total = quantity * product.price

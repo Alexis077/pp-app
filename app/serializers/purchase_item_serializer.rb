@@ -1,11 +1,8 @@
 class PurchaseItemSerializer < ActiveModel::Serializer
   attributes :id, :product, :quantity, :total
-
-  def total
-    object.total.round(2)
-  end
-
+  belongs_to :product
+  
   def product
-    object.product
+    ProductSerializer.new(object.product)
   end
 end
