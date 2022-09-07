@@ -41,32 +41,34 @@ ProductCategory.create!(product: product_8, category: category_1)
 ProductCategory.create!(product: product_9, category: category_1)
 ProductCategory.create!(product: product_10, category: category_3)
 
-create(:purchase, date: Time.zone.now,
+time = "06-09-2022 00:00:00".to_datetime
+
+create(:purchase, date: time - 1.days,
         purchase_items_attributes: [ 
                                 { product: product_1, quantity: 2},
                                 { product: product_2, quantity: 1}
                                 ]
 )
-create(:purchase, date: Time.zone.now,
+create(:purchase, date: time - 2.days,
     purchase_items_attributes: [ 
                             { product: product_3, quantity: 5},
                             { product: product_4, quantity: 12}
                             ]
 )
-create(:purchase, date: Time.zone.now,
+create(:purchase, date: time - 3.days,
     purchase_items_attributes: [ 
                             { product: product_3, quantity: 2},
                             { product: product_4, quantity: 2}
                             ]
 )
-create(:purchase, date: Time.zone.now,
+create(:purchase, date: time - 3.days,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 5},
                             { product: product_5, quantity: 10},
                             { product: product_10, quantity: 1}
                             ]
 )
-create(:purchase, date: Time.zone.now,
+create(:purchase, date: time - 4.days,
     purchase_items_attributes: [ 
                             { product: product_2, quantity: 4},
                             { product: product_6, quantity: 2},
@@ -74,7 +76,7 @@ create(:purchase, date: Time.zone.now,
                             { product: product_10, quantity: 7}
                             ]
 )
-create(:purchase, date: Time.zone.now,
+create(:purchase, date: time - 5.days,
     purchase_items_attributes: [ 
                             { product: product_2, quantity: 9},
                             { product: product_5, quantity: 1},
@@ -83,7 +85,7 @@ create(:purchase, date: Time.zone.now,
                             { product: product_6, quantity: 4}
                             ]
 )
-create(:purchase, date: Time.zone.now,
+create(:purchase, date: time - 6.days,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 3},
                             { product: product_5, quantity: 1},
@@ -92,27 +94,27 @@ create(:purchase, date: Time.zone.now,
                             { product: product_4, quantity: 2}
                             ]
 )
-create(:purchase, date: Time.zone.now,
+create(:purchase, date: time - 6.days,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 4}
                             ]
 )
-create(:purchase, date: Time.zone.now,
+create(:purchase, date: time - 7.days,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 7}
                             ]
 )
-create(:purchase, date: Time.zone.now,
+create(:purchase, date: time - 8.days,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 6}
                             ]
 )
-create(:purchase, date: Time.zone.now,
+create(:purchase, date: time - 9.days,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 2}
                             ]
 )
-create(:purchase, date: Time.zone.now,
+create(:purchase, date: time - 10.days,
     purchase_items_attributes: [ 
                             { product: product_1, quantity: 8}
                             ]

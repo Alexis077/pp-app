@@ -14,10 +14,13 @@ class Purchase < ApplicationRecord
   end
 
   def self.search(params)
-    purchases = Purchase.includes(purchase_items: :product)
-    purchases = purchases.where(date: params[:start_date].to_time.strftime("%Y-%m-%d 00:00:00")..params[:end_date].to_time.strftime("%Y-%m-%d 23:59:59")) if params[:start_date].present? && params[:end_date].present?
-    purchases = purchases.where(purchase_item: { product: { id: params[:product_id] } }) if params[:product_id].present?
-    purchases = purchases.where(purchase_item: { category_id: params[:category_id] }) if params[:category_id].present?
+    purchases = Purchase.includes(purchase_items: [product: [product_categories: [:category]]])
+    if params[:start_date].present? && params[:end_date].present?
+      purchases = purchases.where(date: params[:start_date].to_time.strftime("%Y-%m-%d 00:00:00")..params[:end_date]
+      .to_time.strftime("%Y-%m-%d 23:59:59"))
+    end
+    purchases = purchases.where(purchase_items: { products: { id: params[:product_id] } }) if params[:product_id].present?
+    purchases = purchases.where(purchase_items: { categories: { id: params[:category_id] } }) if params[:category_id].present?
     purchases
   end
 end
