@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::AuthenticationsController, type: :controller do
   describe 'POST #create' do
     let!(:user){ FactoryBot.create(:user) }
-    let!(:params) do 
+    let!(:params) do
       { email: user.email, password: '1234567890' }
     end
 

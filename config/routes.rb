@@ -16,7 +16,11 @@ Rails.application.routes.draw do
           get 'top_incomes', to: 'products#top_incomes'
         end
       end
-      resources :purchases, only: [:index]
+      resources :purchases, only: [:index] do
+        collection do
+          get 'purchase_graph', to: 'purchases#purchase_graph'
+        end
+      end
     end
   end
 end

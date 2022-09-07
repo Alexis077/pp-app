@@ -23,4 +23,12 @@ class Purchase < ApplicationRecord
     purchases = purchases.where(purchase_items: { categories: { id: params[:category_id] } }) if params[:category_id].present?
     purchases
   end
+
+  def self.graph(params)
+    purchases = Purchase.all
+    if params[:start_date].present? && params[:end_date].present?
+      purchases = purchases.where(date: params[:start_date].to_time.strftime("%Y-%m-%d %H:%M")..params[:end_date].to_time.strftime("%Y-%m-%d %H:%M"))
+    end
+    purchases
+  end
 end

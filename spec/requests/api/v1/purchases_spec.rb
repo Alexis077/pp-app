@@ -59,5 +59,18 @@ RSpec.describe Api::V1::PurchasesController, type: :controller do
         expect(response.status).to eq(200)
       end
     end
+
+    context 'Use date filters' do
+      it 'success response' do
+        request.headers.merge!(headers)
+        get(:purchase_graph, params: { start_date: '01/09/2022 00:00', end_date: '03/09/2022 23:59' })
+        json_response = JSON.parse(response.body)
+        expect(json_response['data'][0][1]).to eq(2)
+        expect(json_response['data'][1][1]).to eq(1)
+        expect(json_response['data'][2][1]).to eq(1)
+        expect(json_response['data'].size).to eq(3)
+        expect(response.status).to eq(200)
+      end
+    end
   end
 end
